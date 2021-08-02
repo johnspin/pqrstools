@@ -100,5 +100,7 @@ while currPrime <= topPrime:
 
 ReadOffRemainingPrimes()
 DisplayPrimesInArray(currPrime, 0)
+
+print('Good job, John!!!')
 #  DisplayArray()
 # end-jrs
