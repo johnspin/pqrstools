@@ -25,9 +25,9 @@ def DisplayPrimesInArray (start=0, offset=0, verify=False, falseData=False):
                     test = ' = ' + test
                 else:
                     test = ' <> ' + test + '!!!'
-                print(f"{i+offset}{test},"),
+                print(f"{i+offset}{test},", end=" ")
             else:
-                print(i+offset),
+                print(i+offset, end=" ")
             j += 1
 
 
@@ -55,7 +55,7 @@ def CrossOffArrayEntries(start, end, step, doPrint=False):
     print("Crossing off composites.")
     for i in range(start, end, step):
         if doPrint:
-            print(i),
+            print(i, end=" ")
         isPrime[i] = False
     if doPrint:
         print("")
