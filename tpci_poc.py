@@ -55,7 +55,7 @@ def get_total_time():
     hours = days * 24 + seconds // 3600
     minutes = (seconds % 3600) // 60
     seconds = seconds % 60
-    diff_display = f"D:HH:MM:SS {days}:{hours}:{minutes}:{seconds}"
+    diff_display = f"D:HH:MM:SS {days}:{hours:02}:{minutes:02}:{seconds:02}"
     return diff_display
 
 
