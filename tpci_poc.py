@@ -40,13 +40,13 @@ def get_start_time():
     global start_time
     start_str = search_env_variable("BUILD_START_DATE") + search_env_variable("BUILD_START_TIME")
     start_time = datetime.strptime(start_str, '%Y%m%d%H%M%S')
-    return start_time.isoformat()
+    return start_time.astimezone().replace(microsecond=0).isoformat()
 
 
 def get_stop_time():
     global now
     now = datetime.utcnow()
-    return now.isoformat()
+    return now.astimezone().replace(microsecond=0).isoformat()
 
 
 def get_total_time():
