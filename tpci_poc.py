@@ -4,7 +4,7 @@ import uuid
 from datetime import datetime
 
 start_time = ""
-now = datetime.now()
+now = ""
 
 
 def main():
@@ -39,15 +39,13 @@ def get_guid():
 def get_start_time():
     global start_time
     start_str = search_env_variable("BUILD_START_DATE") + search_env_variable("BUILD_START_TIME")
-    # print(start_time)
-    # start_str = "20210729" + "234520"
-    # print(start_time)
-    
     start_time = datetime.strptime(start_str, '%Y%m%d%H%M%S')
     return str(start_time)
 
 
 def get_stop_time():
+    global now
+    now = datetime.now()
     return now.strftime("%m/%d/%Y %H:%M:%S")
 
 
