@@ -40,13 +40,13 @@ def get_start_time():
     global start_time
     start_str = search_env_variable("BUILD_START_DATE") + search_env_variable("BUILD_START_TIME")
     start_time = datetime.strptime(start_str, '%Y%m%d%H%M%S')
-    return str(start_time)
+    return start_time.isoformat()
 
 
 def get_stop_time():
     global now
     now = datetime.utcnow()
-    return now.strftime("%m/%d/%Y %H:%M:%S")
+    return now.isoformat()
 
 
 def get_total_time():
@@ -55,7 +55,7 @@ def get_total_time():
     hours = days * 24 + seconds // 3600
     minutes = (seconds % 3600) // 60
     seconds = seconds % 60
-    diff_display = f"D:HH:MM:SS {days}:{hours:02}:{minutes:02}:{seconds:02}"
+    diff_display = f"HH:MM:SS {hours:02}:{minutes:02}:{seconds:02}"
     return diff_display
 
 
