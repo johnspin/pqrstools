@@ -1,0 +1,24 @@
+{
+  "id": "",
+  "vcsNumber": "",
+  "buildNumber": "",
+  "jobName": "",
+  "runName": "",
+  "startTime": "",
+  "stopTime": "",
+  "queueTime": "",
+  "totalBuildTime": "",
+  "result": "pass",
+  "required": [
+    "id",
+    "vcsNumber",
+    "buildNumber",
+    "jobName",
+    "runName",
+    "startTime",
+    "stopTime",
+    "queueTime",
+    "totalBuildTime",
+    "result"
+  ]
+}
