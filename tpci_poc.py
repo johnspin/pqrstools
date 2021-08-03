@@ -45,7 +45,7 @@ def get_start_time():
 
 def get_stop_time():
     global now
-    now = datetime.now()
+    now = datetime.utcnow()
     return now.strftime("%m/%d/%Y %H:%M:%S")
 
 
