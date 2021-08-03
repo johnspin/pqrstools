@@ -1,0 +1,10 @@
+{
+  "id": ["", "get_guid"],
+  "vcsNumber": ["BUILD_VCS_NUMBER", ""],
+  "buildNumber": ["BUILD_NUMBER", ""],
+  "jobName": ["TEAMCITY_PROJECT_NAME", ""],
+  "runName": ["TEAMCITY_BUILDCONF_NAME", ""],
+  "startTime": ["", "get_start_time"],
+  "stopTime": ["", "get_stop_time"],
+  "totalBuildTime": ["", "get_total_time"]
+}
