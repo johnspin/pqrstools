@@ -2,16 +2,28 @@ import json
 import os
 import uuid
 from datetime import datetime, timezone
+import argparse
 
 start_time = ""
 now = ""
 
+parser = argparse.ArgumentParser()
+parser.add_argument("exampleOutput", default="TPCi_TeamCity_data_form.json", help="Final format of the output file")
+parser.add_argument("translationSpec", default="schemaMapping.json", help="Specifies the translation of environment variables and modified data to output format")
+parser.add_argument("outputFile", default="S3_storage.json", help="S3 output file name")
+args = parser.parse_args()
+# print(args.exampleOutput)
+# print(args.translationSpec)
+inFile = args.exampleOutput
+translationSpec = args.translationSpec
+# outputFile = args.outputFile
+
 
 def main():
-    with open("TPCi_TeamCity_data_form.json", "r") as infile:
+    with open(inFile, "r") as infile:
         build_data = json.load(infile)
 
-    with open("schemaMapping.json", "r") as map_file:
+    with open(translationSpec, "r") as map_file:
         mapping = json.load(map_file)
 
     for key, value in mapping.items():
@@ -29,7 +41,12 @@ def main():
 
         build_data[key] = result
 
-    print(json.dumps(build_data))
+    if args.outputFile:
+        outputFile = args.outputFile
+        with open(outputFile, "w") as out_file:  # truncate file first
+            json.dump(build_data, out_file)
+    else:
+        print(json.dumps(build_data))
 
 
 def get_guid():
